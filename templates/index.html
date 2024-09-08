@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women Safety Analytics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body class="text-center bg-gray-50">
+    <nav class="bg-gray-800 p-4 text-white" x-data="{ open: false }">
+        <div class="container mx-auto flex flex-wrap justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="https://img.etimg.com/thumb/msid-45451298,width-480,height-360,imgsize-156251,resizemode-75/11-women-safety-secured.jpg"
+                    alt="Women Safety Logo" class="w-12 h-12 rounded-full">
+                <div class="text-2xl font-bold">Women Safety Analytics</div>
+            </div>
+            <button @click="open = !open" class="md:hidden block text-white">
+                <i class="fa fa-bars"></i>
+            </button>
+            <ul :class="{'block': open, 'hidden': !open}"
+                class="md:flex md:space-x-8 space-y-4 md:space-y-0 hidden text-lg">
+                <li><a href="#" class="hover:text-red-400">Home</a></li>
+                <li><a href="#about-us" class="hover:text-red-400">About Us</a></li>
+                <li><a href="#" class="hover:text-red-400">Contact Us</a></li>
+                <li><button class="bg-blue-400 rounded-2xl w-36 h-12 font-sans hover:bg-orange-600 hover:text-xl hover:font-bold">Login/SignUp</button></li>
+            </ul>
+        </div>
+    </nav>
+    <header class="pt-20 pb-12 bg-gray-100">
+        <h1 class="text-4xl font-bold mb-6">Emergency Help Needed?</h1>
+        <button
+            class="bg-red-600 rounded-full h-32 w-32 m-8 font-bold text-white text-2xl hover:bg-red-500 transform hover:scale-110 transition duration-200 ease-in-out shadow-lg hover:shadow-xl" id='sos-btn'>
+            SOS
+        </button>
+        <h3 class="text-lg text-gray-700 font-semibold">Press the button to send SOS</h3>
+    </header>
+    <section class="py-10">
+        <ul class="flex flex-wrap justify-center gap-8">
+            <li class="text-center">
+                <i
+                    class="fa-solid fa-building-shield text-2xl rounded-full bg-slate-200 h-16 w-16 grid place-content-center cursor-pointer"></i>
+                <p class="font-bold mt-2">Helpline <br> 112</p>
+            </li>
+            <li class="text-center">
+                <i
+                    class="fa-solid fa-location-dot text-2xl rounded-full bg-slate-200 h-16 w-16 grid place-content-center cursor-pointer"></i>
+                <p class="font-bold mt-2">Location</p>
+            </li>
+            <li class="text-center">
+                <i
+                    class="fa-solid fa-user-group text-2xl rounded-full bg-slate-200 h-16 w-16 grid place-content-center cursor-pointer"></i>
+                <p class="font-bold mt-2">Nearby <br> Help</p>
+            </li>
+            <li class="text-center">
+                <label for="video-upload" class="cursor-pointer">
+                    <i
+                        class="fa-solid fa-user text-2xl rounded-full bg-slate-200 h-16 w-16 grid place-content-center"></i>
+                    <p class="font-bold mt-2">Detect <br> Person </p>
+                    <input type="file" id="video-upload" class="hidden">
+                </label>
+            </li>
+            <li class="text-center">
+                <i
+                    class="fa-solid fa-user text-2xl rounded-full bg-slate-200 h-16 w-16 grid place-content-center cursor-pointer"></i>
+                <a href="./sujan.html" class="font-bold mt-2">Form <br> </a>
+            </li>
+        </ul>
+    </section>
+    <section id="about-us" class="py-10 px-6 md:px-12 bg-gray-100">
+        <h2 class="text-3xl font-bold mb-6">About Women Safety</h2>
+        <p class="text-lg text-gray-700 mb-6">
+            Women's safety is a critical issue globally. In today's world, it is imperative to create safer environments
+            for women,
+            both online and offline. Empowering women to feel secure and confident is key, and this can be achieved
+            through the
+            use of modern technologies, data-driven analytics, and continuous vigilance. Our platform is committed to
+            leveraging
+            technology to offer protection and real-time safety alerts, helping women feel safer in public spaces.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp_lb6HmCbVe3iNt6ZVhzY7DXJzkE1Q-YiKg&s"
+                alt="Women Safety Image 1" class="w-full h-64 object-cover rounded-lg shadow-lg">
+            <img src="https://www.businessofapps.com/wp-content/uploads/2022/11/cover_emezintech_women_safety.jpeg"
+                alt="Women Safety Image 2" class="w-full h-64 object-cover rounded-lg shadow-lg">
+            <img src="https://i.poweredtemplates.com/p/sp/83297/sp_slide_h_3.jpg" alt="Women Safety Image 3"
+                class="w-full h-64 object-cover rounded-lg shadow-lg">
+        </div>
+    </section>
+    <footer class="bg-gray-800 text-white p-6 mt-12">
+        <div class="container mx-auto text-center">
+            <p class="text-lg">© 2024 Women Safety Analytics. All rights reserved.</p>
+            <p><a href="#about-us" class="hover:text-red-400">About Us</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('video-upload').addEventListener('change', function () {
+            const file = this.files[0];
+            if (file) {
+                const formData = new FormData();
+                formData.append('video', file);
+
+                fetch('/send_video', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => alert(data.message))
+                .catch(err => console.error(err));
+            }
+        });
+
+        document.getElementById('sos-btn').addEventListener('click', async function () {
+            // Get user's location
+            const location = await getLocation();
+            const voiceBlob = await recordVoice();
+
+            // Send voice and location data to backend
+            const formData = new FormData();
+            formData.append('latitude', location.latitude);
+            formData.append('longitude', location.longitude);
+            formData.append('voice', voiceBlob);
+
+            // Send the data to the server
+            fetch('/send-sos', {
+                method: 'POST',
+                body: formData
+            }).then(response => response.json())
+              .then(data => alert(data.message))
+              .catch(err => console.error(err));
+        });
+
+        // Function to get the user's location
+        async function getLocation() {
+            return new Promise((resolve, reject) => {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(position => {
+                        resolve({
+                            latitude: position.coords.latitude,
+                            longitude: position.coords.longitude
+                        });
+                    }, reject);
+                } else {
+                    reject(new Error("Geolocation is not supported by this browser."));
+                }
+            });
+        }
+
+        // Function to record voice
+        async function recordVoice() {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            const mediaRecorder = new MediaRecorder(stream);
+            let chunks = [];
+
+            mediaRecorder.start();
+            setTimeout(() => mediaRecorder.stop(), 5000); // Record for 5 seconds
+
+            mediaRecorder.ondataavailable = (e) => {
+                chunks.push(e.data);
+            };
+
+            return new Promise((resolve) => {
+                mediaRecorder.onstop = () => {
+                    const blob = new Blob(chunks, { type: 'audio/ogg; codecs=opus' });
+                    resolve(blob);
+                };
+            });
+        }
+    </script>
+    
+</body>
+</html>
