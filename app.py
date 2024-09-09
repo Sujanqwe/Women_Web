@@ -232,8 +232,8 @@ app.config['MAIL_USE_SSL'] = True
 
 mail = Mail(app)
 
-# Function to capture live video
-def capture_video(video_filename, duration=10):
+# Function to capture live video and detect person
+def capture_video_and_detect_person(video_filename, duration=10):
     cap = cv2.VideoCapture(0)  # Use '0' for the default webcam
     fourcc = cv2.VideoWriter_fourcc(*'MJPG')  # Codec
     out = cv2.VideoWriter(video_filename, fourcc, 20.0, (640, 480))
@@ -242,9 +242,19 @@ def capture_video(video_filename, duration=10):
     fps = 20  # Assuming 20 frames per second
     max_frames = duration * fps  # Duration in seconds
 
+    # Load pre-trained person detection model (Haar Cascade for example)
+    person_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_fullbody.xml')
+
     while frame_count < max_frames:
         ret, frame = cap.read()
         if ret:
+            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            bodies = person_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
+
+            # Draw rectangle around detected person
+            for (x, y, w, h) in bodies:
+                cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
+
             out.write(frame)  # Write frame to file
         else:
             break
@@ -287,6 +297,11 @@ def send_email(sender_email, sender_password, recipient_email, subject, body, vi
 @app.route('/')
 def index():
     return render_template('index.html')  # This will render 'index.html' from 'templates' folder
+
+# Route to serve sujan.html
+@app.route('/sujan')
+def sujan():
+    return render_template('sujan.html')
 
 # Endpoint to receive location and voice data
 @app.route('/send-sos', methods=['POST'])
